@@ -1,0 +1,146 @@
+Welcome to the Melissa Project
+
+Problem statement:
+    Problem Statement:
+The project's objective and ‘dream case scenario’ is to develop a Deep Reinforcement Learning model 
+called Melissa that employs Boosting and Hybrid Neural Networks to predict top-performing investment portfolios.
+Collecting and analyzing historical data, finding correlations and cross-correlations among different investment assets,
+and implementing macroeconomic factors, Melissa aims to learn where to invest to generate a positive return on investments
+that can handle various market conditions.
+
+I write ‘dream case’ as it can be a complex project, which might change to a more simplified model if time starts to run out. 
+Prediction certainty; with Monte Carlo Dropout integration, Melissa will be able to transparently inform us about how confident
+she is in the investments. Ultimately letting her manage (fictional) money amount of $1,000,000 and her goal is
+to create a portfolio that generates + 20% ROI.
+
+Short Version:
+We are developing an AI model called Melissa to predict the optimal investment portfolios for varying market conditions. 
+It analyzes historical data and economic factors to make informed decisions. 
+Displays the model's confidence in its predictions, with the goal of a 20% return on a fictional $1,000,000 portfolio.
+
+
+
+Melissa the solution:
+Melissa as a smart investment advisor who's always learning and enhancing her knowledge. 
+She starts by researching various investment options, like stocks, bonds, commodities, and cryptocurrencies. 
+She then examines their past performance to identify patterns, trends, and connections between assets.
+
+Melissa also considers broader economic factors, such as GDP growth, inflation, interest rates, and unemployment rates, 
+to understand how they affect the performance of each asset.
+
+Next, Melissa practices making investment decisions by allocating funds across different assets 
+while staying within the $1,000,000 budget. She learns from her successes and mistakes, refining her strategy 
+and improving her decision-making abilities over time. To ensure her predictions are accurate, 
+she uses advanced techniques, such as Boosting algorithms.
+Melissa also calculates the uncertainty or risk associated with each investment decision, 
+sharing this information with users so they can make informed choices.
+
+As market conditions change and new data becomes available, 
+Melissa adapts her strategies to continue providing the best possible investment advice. 
+In this way, Melissa acts like a personal investment advisor who's always learning, adapting, 
+and striving to make the most informed decisions for her clients.
+
+
+
+
+How Melissa Thinks:
+1. Melissa's decision-making process for improved accuracy in asset allocation:
+Identify asset classes and investment options: Melissa identifies various asset classes.
+	Financiel data:
+        Stocks
+        Bonds
+        EFTs for Bonds
+        Individual Commodities
+        REITs (Real Estate Investment Trusts)
+        International Indices
+        Crypto 
+
+    Macroeconomy factors:
+        GDP for 10 countries (Current in $ and annual growth in %)
+        Bank Interest Rates
+        Employment & Unemployment Rates
+
+
+2. Feature extraction and analysis.
+3. Incorporate macroeconomic factors.
+4. Reinforcement learning and portfolio optimization.
+5. Boosting algorithm for improved accuracy.
+6. Uncertainty estimation (Monte Carlo Dropout).
+7. Continuous improvement and adaptation.
+
+Data quality & liability:
+Data sources includes:
+* Yahoo Finance (Stocks and other assets)
+* World Bank (GDP, Bank Interest Rates, Employment & Unemployment Rates)
+* FRED (Federal Reserve Economic Data) (Bonds)
+* ECB (European Central Bank) (Euro to USD exchange rate)
+
+I rely on every of the above data sources. Big organisations that have a lot of experience in collecting, 
+providing and updating data.
+
+We use about 20 datasets, some goes back to 1971 and some only to 2018.
+ex. the 'bnk_int_rate.py' has: Total rows: 26519, Total columns: 7
+
+
+Lär känna ditt data.  
+• Är det komplett? 
+For its usage, yes. Some datasets have historical data back from 1971 and others only from 2018. 
+Most important I’ve tried to include a diversified and basic set that I believe will be able to find
+crosscorrelation and correlation between different assets.
+
+• Har du null-värden? 
+Yes ‘Null-värden’ exists, especially on the weekends when the financial market is on a break/pause. 
+Through the weekends I will let the asset keep the same value as it closed with on Friday (market close). 
+
+• Har du extrema värden? 
+The datasets don’t contain extreme outliers, if you look at them historically. 
+Of course, the 2000s dot-com boom, 9/11, 2008 regression, covid have would be in the category of ‘extreme värden’
+at the point when it happens. The bigger picture in hindsight where we see the different financial assets outliers
+also affect some macroeconomic factors. 
+
+• Vilka datatyper har datat? 
+Datatypes is mostly: int, floats and objects. In other words, numbers and names.
+
+• Vilka fält i ditt data vill du använda dig av? 
+The financial assets I will use are the asset opening-, closing price, and trading volume, 
+and see if I can find any trends connected with the macro factors.
+
+• Hur kan du konvertera alla fält du vill använda till ett numeriskt format? 
+Almost all data is numeric, whereas names of the asset, or country is an object 
+and can be converted into a number if needed. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Project Description:
+The Melissa Project aims to develop a Deep Reinforcement Learning (DRL) model that combines Boosting and Hybrid Neural Networks
+to analyze and predict high-performing investment portfolios. By examining historical time-series data from
+various investment assets and incorporating macroeconomic indicators, Melissa identifies correlations and cross-correlations
+that inform strategic asset allocation decisions. The model's primary goal is to adapt to diverse market conditions, 
+consistently generating robust returns on financial investments.
+
+Melissa utilizes a Hybrid Neural Network that employs Convolutional Neural Networks (CNNs) for time-series data feature extraction
+and Recurrent Neural Networks (RNNs) or Long Short-Term Memory (LSTM) networks for capturing long-term dependencies. 
+This base model output is then integrated with a Boosting algorithm, such as AdaBoost or Gradient Boosting, 
+to enhance its predictive accuracy.
+
+We will evaluate Melissa's performance by simulating its investment returns across various periods, 
+focusing on a wide range of investment assets and incorporating macroeconomic factors, like GDP growth, 
+inflation, interest rates, and unemployment rates, to strengthen its ability to recognize trends and react 
+to changing market conditions.

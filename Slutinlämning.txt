@@ -1,0 +1,195 @@
+Project evaluation, reflection, and desciption.
+
+:D First, I have got so much respect of data and how you really need to treat it with love and respect. 
+I'll get back to this later.
+
+Project, build a RL system that rewards it self on trading financial assets, with a fictional budget of $ 1 million.
+Assets data is collected from 1970 to 2023, the test set is small (only the last recent month). I basically underestimated the
+great care you need to apply to your data, and the need for experience you need to have to be able to make a good model. 
+Though I will continue learning, I got great inspiration from this course for the project and also from the two recent books i Read while during the great course:
+Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People
+The Hundred-Page Machine Learning Book
+
+THANKS for the PDF file, on how to think when you are going for a ML project/system, and yes I have went back to the drawing board several times, but with great learnings.
+
+evaluation:
+I ended up whith throwing my CNN and Hybrid model out of the project as it got too complex (I will upload the files anyway), as well I also excluded
+the Macro data from the RL system. When I came to the Feature Extraction work I realised that I had to make a choice
+about 'multi target regression' or not. I would need to somehow label the 'Asset name' for the model to provide a set of assets
+that will be a great combination to spread your investment on, that'll be able to handle different market conditions.
+How to encode the asset names got me stuck and overwhelmed in my feature extraxtion script, I dropped it and went for an 
+I also got stuct at connecting the the Hybrid CNN model with XGBoost to the RL system, too complex for me at this point.
+MVP version of my original idea. 
+
+I chose to focus on 'adjclose' adjusted closing price as we want the RL model to learn how to do well in the financial market.
+
+The project is using a Deep Q-Network (DQN) model for reinforcement learning. 
+The DQN model is implemented using the TensorFlow/Keras library. 
+the input to the network is the state representation, which includes information about the current asset price 'adjclose' 
+and the agent's budget, where the output is a Q-value for each possible action the agent can take.
+Why DQN? I wanted to build an RL system, and us I understood the already prepared data that I had made for the the DRL system (the one I thought from the beginning I would build),
+I realised that I could use the data for a DQN system. 
+
+But for trying to keep it short, THE RESULT is a working RL system (DQN) where as I write this I tried to implement a benchmark (S&P 500) 
+to compare the RL system with a standard investment strategy, and 2 slightly different reward systems. Hopefully I will be able to to plot the results.
+I am calculating Net worth and adjusted risk free rate, and I am using the 'adjclose' adjusted closing price as we want the RL model to learn how to do well in the financial market.
+The other reward system 'B' is maximize the return of investment. 
+
+PASTE IN THE RESULTS:
+On reward system A 
+S&P 500 return: -9.722539136926025
+Agent return: -2.220174693851732e-06
+The agent outperformed the S&P 500.
+
+HOW could it be improved?:
+1. Beef up/give steoirds to the model: Perhaps it's too basic to learn well. I could add more hidden layers or units. 
+But this could also lead to overfitting.
+
+2. Adjust the hyperparameters: Things like learning rate, discount factor, exploration rate decay, batch size, 
+and memory size can be tweaked for better performance. That'll take some time but could potentially give
+improvements.
+
+3. Rethink the rewards: Right now, we're using the Sharpe Ratio and total return as rewards, 
+which might not promote the best long-term strategies. Try using other risk and return measures, 
+like the Sortino Ratio, which focuses on downside risk.
+and probably many more 
+
+OTHER issues and learings:
+The data, how to pivot it and how to make it ready for the model. I faced some challenges when I started to pivot the data,
+from long-format to flat which created a lot of missing values in the feature extraction script, which I dropped. 
+Learned to be very carefull when I merge, pivot, clean the data, because it has caused me a lot of extra work.
+I 'cheated' and backward forward filled in the recent data collection 'def prepare_data_for_rl' as time
+was running out, and I didn't see any clear issues with the data handling, which there is because it is creating NaN values(data_aggregator:py).
+
+I could have spent more time figuring out how the data need to be presented to the model, instead taking it step for step,
+definetly something I will include in project planning for future projects.
+
+Otherwise, It has been so much fun!! I will definetly continue to learn and practice 'hands-on' with data and systems as ML.
+*I have bought some microcontrollers to experiment with and will be working on connecting them to electronical devices,
+and try logging, classifying which program the electronic device is using, collect electronic device usage data.
+
+
+WHY THE RL SYSTEM PERFORMED AS IT DID?:
+I think the model is too simple, and the data is not good enough. 
+Even though it turn out that the agent outperformed the S&P 500, it has a wide range of options to buy varoius assets.
+Concerns are the agents negative average trades for several assets could mean it's selling 
+potentially profitable assets, and also return a negative return, even near zero, which I might think the agent could
+be mostly preserved its initial budget rather than making profitable trades.
+
+Terminal output:
+Training with reward system: A
+Shape of data passed to get_state: Initial prices - (20,), Price updates - (47,)
+1/1 [==============================] - 0s 130ms/step
+1/1 [==============================] - 0s 39ms/step
+.............
+.............
+End results:
+Average trades: Asset name
+IOO        1.111539
+KC=F       0.331621
+LQD       -0.546071
+LTC-USD   -1.190872
+MSCI       0.212597
+PLD        0.085460
+SB=F       0.301695
+SHY       -0.148153
+SI=F      -1.781461
+SLV       -1.804598
+SPG        0.189228
+TIP        0.798552
+TLT       -0.592283
+USO       -1.356435
+VEU        0.803577
+VNO        0.129693
+VTR       -0.201755
+WPC       -0.089966
+XRP-USD   -0.422739
+ZC=F      -1.306931
+ZS=F      -0.402703
+^GSPC      1.194291
+^IXIC      1.193311
+^N225      7.959874
+^N300      0.098321
+^RUT      -1.461620
+^STOXX     0.012995
+dtype: float64
+S&P 500 return: -9.722539136926025
+Agent return: -2.220174693851732e-06
+The agent outperformed the S&P 500.
+/and plots of the results.
+
+
+reflections:
+Really great course, I'm curious for more and have already applied for the next courses.
+START small and simple, and build on that! (that was what i failed with in the beginning, and thought I would be able to build a DRL system) Great lesson !!
+And use Joakim's PDF, Thanks!
+
+And YES, I could have gathered all financial assets into one file instead have them categorized. One step at a time, and keep space for improvements.
+
+
+desciption:
+
+assets.py: This script is responsible for gathering financial data on stocks, bonds, ETFs, funds, and commodities from Yahoo Finance. 
+It also obtains macroeconomic data like GDP (current value and percentage growth), inflation rates for ten different countries, 
+employment rates, and bank interest rates from sources like FRED and The World Bank Data. After collecting all this information, 
+it cleans and rearranges the data into a more readable long-format, consisting of columns like 'Date', 'Asset name', 'Series', and 'Value'. 
+Any missing values are removed during this process. The date index is converted into a datetime object for easy processing, 
+and all columns are renamed according to their ticker names. The data is then normalized using a technique called MinMaxScaler 
+that brings all values between 0 and 1. Finally, all this data is merged, restructured into long format, and stored in a CSV file. 
+In simpler terms, consider this script as a diligent researcher collecting and cleaning data for easy understanding and usage.
+
+exchange.py: This script gathers exchange rate data for Yen and Euro against USD from designated CSV files and Yahoo Finance. 
+It uses this data to convert values from Yen or Euro to USD in the gathered data. The 'open' and 'adjclose' values
+ are transformed from the original currency to USD using the fetched exchange rates. In simpler terms, think of this script
+as a currency exchange counter, converting values from different currencies into USD for easy comparison.
+
+merged_data.py: This script loads preprocessed CSV files of various financial and macroeconomic datasets. 
+These datasets are then combined into one single dataset each for financial data and macroeconomic data. 
+The script prints out the shapes of these merged datasets, counts any missing values, and lists unique asset names from the financial dataset. 
+The financial data is filtered to include dates before a specific cutoff date, and both the filtered financial data
+ and merged macroeconomic data are saved to CSV files. In simpler terms, 
+ imagine this script as a librarian organizing and arranging books (or datasets) into categories, 
+ checking for missing pages (or data), and storing this organized information neatly.
+
+feature_extraction.py: This script contains two classes: 'DataPreprocessor' and 'DataPreparation'. 
+The 'DataPreprocessor' class has methods to calculate rolling mean, momentum, and volatility of given data, 
+and a method to preprocess data with these calculations. The 'DataPreparation' class 
+provides functionality to apply PCA, create lookback data, and prepare data for model training by splitting it 
+into training, validation, and test datasets. To simplify, think of this script as a study planner for an exam, 
+first taking notes (data preprocessing), then creating a study plan (data preparation).
+
+Extra feature added:
+*Rolling Mean (Moving Average): This is used to smooth out short-term fluctuations and highlight longer-term trends or cycles.
+*Momentum: Momentum is a measure of the rate of change in price, volume, or other quantities, and as a feature can help 
+the model identify these reversals and adjust its predictions accordingly.
+*High volatility means that the price of the security can change dramatically over a short time period in either direction. 
+A lower volatility means that a security's value does not fluctuate dramatically, but changes in value at a steady pace over time. 
+Therefore can be an important feature for risk assessment and risk-adjusted performance.
+*PCA can be used to reduce the dimensionality of the data, which can help reduce 
+the computational cost and potentially improve the model's performance by removing noise and redundant features.
+
+data_aggregator.py: This script gathers data for different financial assets like stocks, indices, futures, 
+and cryptocurrencies over a certain period. The collected data is cleaned, normalized, converted to a long format, 
+and all asset data is merged into a single DataFrame. It also preprocesses the data, prepares it for reinforcement learning, 
+and saves the processed data to a CSV file. In simpler terms, think of this script as a financial news aggregator, 
+collecting, cleaning, normalizing, and preparing data for easy understanding and usage.
+
+RL system:
+RL_main.py: This script sets up and manages the main components of the reinforcement learning (RL) system. 
+It loads data, prepares it, trains the agent, and evaluates its performance. 
+Think of this script as the director of a movie, managing all the roles and actions.
+
+agent.py: This script defines the DQNAgent class, which learns and makes decisions based on feedback from the environment. 
+In simpler terms, this script is the main character of the movie, learning and making decisions based on the outcomes.
+
+environment.py: This script models the investment environment, including the initial budget, transaction cost, and asset prices. 
+It defines the possible actions and their effects on the agent's state. Think of this script as the world in which our main character lives.
+
+train.py: This script defines the training process for the RL agent, including how the agent learns from its actions and rewards. 
+Think of it as a personal trainer, helping our main character practice and learn.
+
+evaluate.py: This script evaluates the performance of the trained agent and visualizes the results. 
+In simpler terms, this script is like a critic, providing feedback on the agent's performance.
+
+data_aggregator.py: This script gathers the data in a way that can be used by the RL system. 
+Think of it as the research team, collecting and organizing information for our main character.

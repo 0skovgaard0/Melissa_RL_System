@@ -1,0 +1,55 @@
+ITHS Projekt "Melissa"
+Project Description:
+The Melissa Project aims to develop a Deep Reinforcement Learning (DRL) model that combines Boosting and Hybrid Neural Networks to analyze and predict high-performing investment portfolios. By examining historical time-series data from various investment assets and incorporating macroeconomic indicators, Melissa identifies correlations and cross-correlations that inform strategic asset allocation decisions. The model's primary goal is to adapt to diverse market conditions, consistently generating robust returns on financial investments.
+
+Melissa utilizes a Hybrid Neural Network that employs Convolutional Neural Networks (CNNs) for time-series data feature extraction and Recurrent Neural Networks (RNNs) or Long Short-Term Memory (LSTM) networks for capturing long-term dependencies. This base model output is then integrated with a Boosting algorithm, such as AdaBoost or Gradient Boosting, to enhance its predictive accuracy.
+
+We will evaluate Melissa's performance by simulating its investment returns across various periods, focusing on a wide range of investment assets and incorporating macroeconomic factors, like GDP growth, inflation, interest rates, and unemployment rates, to strengthen its ability to recognize trends and react to changing market conditions.
+
+Problem Statement:
+The project's objective and ‘dream case scenario’ is to develop a Deep Reinforcement Learning model called Melissa that employs Boosting and Hybrid Neural Networks to predict top-performing investment portfolios. Collecting and analyzing historical data, finding correlations and cross-correlations among different investment assets, and implementing macroeconomic factors, Melissa aims to learn where to invest to generate a positive return on investments that can handle various market conditions.
+
+I write ‘dream case’ as it can be a complex project, which might change to a more simplified model if time starts to run out. 
+Prediction certainty; with Monte Carlo Dropout integration, Melissa will be able to transparently inform us about how confident she is in the investments. Ultimately letting her manage (fictional) money amount of $1,000,000 and her goal is to create a portfolio that generates + 20% ROI.
+
+Short Version:
+We are developing an AI model called Melissa to predict the optimal investment portfolios for varying market conditions. It analyzes historical data and economic factors to make informed decisions. Displays the model's confidence in its predictions, with the goal of a 20% return on a fictional $1,000,000 portfolio.
+
+How Melissa Thinks:
+Melissa's decision-making process for improved accuracy in asset allocation:
+Identify asset classes and investment options: Melissa identifies various asset classes 
+and investment options, including stocks, bonds, commodities, and cryptocurrencies.
+	Financiel data:
+Stocks
+Bonds
+EFTs for Bonds
+Individual Commodities
+REITs (Real Estate Investment Trusts)
+International Indices
+Crypto 
+
+Macroeconomy factors:
+GDP for 10 countries (Current in $ and annual growth in %)
+Bank Interest Rates
+Employment & Unemployment Rates
+
+
+Feature extraction and analysis: Melissa employs the Hybrid Neural Network (CNNs for feature extraction and RNNs or LSTMs for capturing long-term dependencies) to analyze historical data and extract relevant features from each asset, such as price trends, volatility, and correlations with other assets.
+Incorporate macroeconomic factors: is for Melissa to understand the broader market context and its influence on asset performance.
+Reinforcement learning and portfolio optimization: Melissa uses Deep Reinforcement Learning (DRL) techniques to learn the best allocation of funds across different assets. The model receives rewards based on portfolio performance and iteratively improves its allocation decisions through trial and error while adhering to the $1,000,000 budget constraint. (Obviously she gets punished if her portfolio value sinks and rewarded if it increases,)
+Boosting algorithm for improved accuracy: Melissa's base model output is fed into a Boosting algorithm, such as AdaBoost or Gradient Boosting, to enhance its overall predictive accuracy.
+Uncertainty estimation: Melissa integrates Monte Carlo Dropout to provide uncertainty estimates for the model's predictions on each investment decision.
+Continuous improvement and adaptation: Melissa's model continuously trains and updates with live data from the different assets and financial market performance. 
+
+
+How Melissa thinks in a Human-relatable way:
+Think of Melissa as a smart investment advisor who's always learning and enhancing her knowledge. She starts by researching various investment options, like stocks, bonds, commodities, and cryptocurrencies. She then examines their past performance to identify patterns, trends, and connections between assets.
+
+Melissa also considers broader economic factors, such as GDP growth, inflation, interest rates, and unemployment rates, to understand how they affect the performance of each asset.
+
+Next, Melissa practices making investment decisions by allocating funds across different assets while staying within the $1,000,000 budget. She learns from her successes and mistakes, refining her strategy and improving her decision-making abilities over time. To ensure her predictions are accurate, she uses advanced techniques, such as Boosting algorithms.
+Melissa also calculates the uncertainty or risk associated with each investment decision, sharing this information with users so they can make informed choices.
+
+As market conditions change and new data becomes available, Melissa adapts her strategies to continue providing the best possible investment advice. In this way, Melissa acts like a personal investment advisor who's always learning, adapting, and striving to make the most informed decisions for her clients.
+
+We will make Melissa accessible to non-expert investors by designing a user-friendly interface using Python and Flask. This interface allows users to interact with the DRL model and receive uncertainty estimates for its 
